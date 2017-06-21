@@ -6,7 +6,6 @@ import * as io from 'socket.io-client';
 @Injectable()
 export class DonorService {
   socket: any;
-  url: any = "http://localhost:3000";
   donors: any;
 
   constructor(public  http: Http) { }
@@ -14,7 +13,7 @@ export class DonorService {
   getRealtimeDonors() {
 
     let observable = new Observable(observer => {
-      this.socket = io(this.url);
+      this.socket = io();
       //we initially get all donors from the rest api and subscribe
       this.getDonors()
         .subscribe((donors) => {

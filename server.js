@@ -17,8 +17,7 @@ app.use(methodOverride('X-HTTP-Method-Override'))
 app.use('/api', require('./server/routes')(io));
 
 app.use((req, res) => {
-  // return res.sendFile('/' + req.originalUrl);
-  return res.redirect('/#' + req.originalUrl);
+  return res.sendFile(path.resolve(__dirname, 'dist/index.html'));
 });
 http.listen(port, function(){
    console.log("Donor Pledge running on port:" + port);

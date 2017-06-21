@@ -6,7 +6,7 @@ const config    = require('config');
 const uniqid    = require('uniqid');
 const response  = require('../services/response');
 
-const db = config.get("databaseUrl");
+const db = process.env.databaseUrl || config.get("databaseUrl");
 mongoose.Promise = Promise;
 mongoose.connect(db, (err) => {
     if(err){

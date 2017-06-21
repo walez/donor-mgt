@@ -169,7 +169,7 @@ export class MapComponent implements OnInit, OnChanges{
   setupDonorMapView() {
 
     //remove mapview visible area change if it exist
-    if(!isEmpty(this.moveEvent)) this.moveEvent.unsubscribe();
+    if(!isEmpty(this.socket)) this.socket.unsubscribe();
 
     //check if we already have a click listener on map
     //can happen if user uses app bar menu to select the same type
@@ -272,7 +272,7 @@ export class MapComponent implements OnInit, OnChanges{
 
   setupDonorsEvent() {
     const donors = this.donorService.getRealtimeDonors();
-      this.moveEvent
+    this.socket = this.moveEvent
         .combineLatest(donors, (extent, donors) => {
           return donors
             .map( donor => {
