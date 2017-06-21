@@ -1,0 +1,18 @@
+<div aria-label="User Type Modal">
+    <md-toolbar class="primary md-primary md-hue-2">
+        <div class="md-toolbar-tools">
+            <h3>Select Type</h3>
+            <span flex></span>
+        </div>
+    </md-toolbar>
+
+    <div md-dialog-actions layout="row">
+        <span flex></span>
+        <button md-button (click)="selectedType('donor')">
+            Donor
+        </button>
+        <button md-button (click)="selectedType('patient')">
+            Patient
+        </button>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+<div aria-label="Donor Modal">
+
+    <h3 md-dialog-title>Donor Pledge</h3>
+
+    <div *ngIf="showStep == 1">
+      <div md-dialog-content>
+        <form #donorForm="ngForm" novalidate class="form">
+
+            <md-input-container class="form-control-inline">
+                <input mdInput placeholder="First Name" [(ngModel)]="donor.first_name" name="firstname" required>
+                <md-error>First Name is required</md-error>
+            </md-input-container>
+
+            <md-input-container class="form-control-inline">
+                <input mdInput placeholder="Last Name" [(ngModel)]="donor.last_name" name="lastname" required>
+                <md-error>Last Name is required</md-error>
+            </md-input-container>
+
+            <md-input-container class="form-control">
+                <input mdInput placeholder="Contact Number" [(ngModel)]="donor.contact_number" name="contactnumber" type="tel" pattern="((\+|00){1}[1-9]{2}) ([0-9]){3} ([0-9]){4} ([0-9]){3}" required>
+                <md-error>Contact Number is required (format: (+xx xxx xxxx xxx | 00xx xxx xxxx xxx))</md-error>
+            </md-input-container>
+
+            <md-input-container class="form-control">
+                <input mdInput placeholder="Email" [(ngModel)]="donor.email" name="email" type="email" email required>
+                <md-error>Email is required</md-error>
+            </md-input-container>
+
+            <md-input-container class="form-control">
+                <input mdInput placeholder="Blood Group" [(ngModel)]="donor.blood_group" name="bloodgroup" required>
+                <md-error>Blood Group is required</md-error>
+            </md-input-container>
+
+            <md-input-container class="form-control">
+                <input mdInput placeholder="Address" [(ngModel)]="donor.location.address" name="address" required>
+                <md-error>Address is required</md-error>
+            </md-input-container>
+
+        </form>
+      </div>
+
+      <div md-dialog-actions layout="row">
+          <span flex></span>
+          <button *ngIf="!showSpinner" md-button (click)="update()" [disabled]="!donorForm.form.valid">
+              Update
+          </button>
+          <button *ngIf="!showSpinner" md-button (click)="delete()" color="warn">
+              Delete
+          </button>
+          <button md-button md-dialog-close (click)="cancel()">
+              Cancel
+          </button>
+      </div>
+    </div>
+
+    <div *ngIf="showStep == 2">
+      <div md-dialog-content>
+        <h2>Your pledge has been updated</h2>
+        <p>You can edit your pledge using your <a [href]="donorLink" target="_blank">link</a></p>
+        <button md-button md-dialog-close>
+              Close
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="showStep == 3">
+      <div md-dialog-content>
+        <h2>Your pledge has been deleted</h2>
+        <button md-button md-dialog-close>
+              Close
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="showSpinner" class="loading"></div>
+</div>
