@@ -23,4 +23,4 @@ http.listen(port, function(){
    console.log("Donor Pledge running on port:" + port);
 });
 
-exports = module.exports.app;
+module.exports = app;
