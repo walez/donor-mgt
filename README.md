@@ -1,11 +1,13 @@
 # DonorMgt
 
+The app shows how to use ArcGis javascript library with Angular2 and above using socket.io for realtime update of map markers
+
 ## Development setup
 
 Run `npm install` to install client and server dependencies.
-Insert MongoDB connection url in default.json and test.json file in `config` folder.
+Insert MongoDB connection url in `default.json` and `test.json` file in `config` folder.
 
-Run `ng build aot`
+Run `ng build aot` to build a static version that can be served from the express app.
 
 ## Run Project
 
