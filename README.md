@@ -1,6 +1,8 @@
 # DonorMgt
 
-The app shows how to use ArcGis javascript library with Angular2 and above using socket.io for realtime update of map markers
+The app shows how to use ArcGis javascript library with Angular2 and above using socket.io for realtime update of map markers.
+
+Live demo at https://donor-pledge.herokuapp.com/
 
 ## Development setup
 
